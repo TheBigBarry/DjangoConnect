@@ -1,0 +1,35 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BD Datos</title>
+    <link rel="stylesheet" href="{% static 'CSS/index.css' %}">
+</head>
+<body>
+    <div class="center">
+        <h1>Lista de personas</h1>
+        <hr>
+
+        <br>
+        
+        <b>
+        <hr>
+        {% for alumno in alumnos%}
+        {{alumno.rut}} | {{alumno.nombre}} {{alumno.apellido_paterno}}
+        {{alumno.apellido_materno}} | {{alumno.id_genero.genero}}
+        {% if alumno.img%}
+            <img src="{{alumno.img.url}}" alt="." width="70px" height="70px">
+        {% else %}
+            <span>No hay imagenes</span>
+        {% endif %}
+        <hr>
+        <br>
+        <span></span>
+        {% endfor%}
+        </b>
+
+    </div>
+</body>
+</html>
